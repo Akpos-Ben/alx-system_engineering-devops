@@ -1,0 +1,65 @@
+https://im.ge/i/1-distributed-web-infrastructure.RkjmNq
+
+**Infrastructure Design:**
+
+1. **User Access Request**:
+   - A user wants to access the website hosted at www.foobar.com.
+
+2. **Domain Name**:
+   - Domain Name: foobar.com
+   - DNS Record: www.foobar.com (A record pointing to the load balancer)
+
+3. **Load Balancer (HAproxy)**:
+   - Configuration: Round-robin distribution algorithm.
+   - Purpose: Distributes incoming HTTP requests evenly across multiple servers.
+   - Active-Active Setup: All load balancer instances are active and share the incoming traffic load.
+
+4. **Web Servers (Nginx)**:
+   - Two instances for redundancy and scalability.
+   - Serve as the entry point for HTTP requests and serve static content.
+
+5. **Application Server**:
+   - Executes the application codebase.
+   - Processes dynamic requests and communicates with the database.
+
+6. **Application Files**:
+   - Codebase stored on the application server.
+   - Contains website logic, such as HTML templates, backend code (e.g., Python, Ruby), etc.
+
+7. **Database (MySQL)**:
+   - Primary-Replica (Master-Slave) cluster setup.
+   - Primary node: Handles write operations.
+   - Replica node: Replicates data from the primary node and handles read operations.
+   - Application communicates with the primary node for write operations and with replica nodes for read operations.
+
+**Explanation of Specifics:**
+
+- **Additional Elements**:
+  - Load Balancer: Added for distributing incoming traffic evenly across multiple servers, enhancing scalability and reliability.
+
+- **Load Balancer Algorithm**:
+  - Round-robin: Distributes requests sequentially across the available servers, ensuring each server receives an equal share of the load.
+
+- **Active-Active vs. Active-Passive Setup**:
+  - Active-Active: All components (load balancers, servers) are active and handle traffic simultaneously, providing redundancy and scalability.
+  - Active-Passive: Involves standby components that only become active when the primary components fail. It offers redundancy but may result in underutilization of resources.
+
+- **Database Primary-Replica Cluster**:
+  - Primary Node: Handles write operations and acts as the authoritative source of data.
+  - Replica Node: Replicates data from the primary node and serves read requests, enhancing read scalability and providing fault tolerance.
+
+- **Difference between Primary and Replica Nodes**:
+  - Primary Node: Handles write operations, ensuring data consistency and integrity.
+  - Replica Node: Serves read requests, improving read scalability and providing fault tolerance, but does not accept write operations directly.
+
+**Issues with this Infrastructure:**
+
+1. **Single Points of Failure (SPOF)**:
+   - Potential SPOFs include the load balancer, database primary node, and application server. Failure of any of these components could lead to service disruption.
+
+2. **Security Issues**:
+   - Lack of firewall: Exposes servers and databases to potential security threats.
+   - No HTTPS: Data transmitted between the user's browser and servers is not encrypted, posing a security risk.
+
+3. **No Monitoring**:
+   - Without monitoring tools, it's challenging to detect and address performance issues, security breaches, or component failures proactively.
