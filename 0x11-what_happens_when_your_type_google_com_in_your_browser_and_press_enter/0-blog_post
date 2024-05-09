@@ -1,0 +1,28 @@
+Title: Demystifying the Journey of a Web Request: Behind the Scenes of Typing "https://www.google.com"
+
+Have you ever stopped to wonder what really happens behind the scenes when you type "https://www.google.com" into your browser and press Enter? It's a fascinating journey that involves a series of intricate steps, each serving a crucial purpose in delivering the web page to your screen. Let's unravel the mystery step by step.
+
+1. DNS Request
+The process begins with a Domain Name System (DNS) request. Your browser needs to translate the human-readable domain name "www.google.com" into an IP address, which is the unique numerical identifier of Google's servers on the internet.
+
+2. TCP/IP
+Once the IP address is obtained, your browser establishes a Transmission Control Protocol (TCP) connection with Google's servers using the Internet Protocol (IP). TCP ensures reliable, ordered, and error-checked delivery of data packets between your browser and the server.
+
+3. Firewall
+Before the connection is fully established, it may encounter firewalls—a network security system designed to monitor and control incoming and outgoing network traffic. Firewalls ensure that only authorized connections are allowed and protect against unauthorized access and cyber threats.
+
+ 4. HTTPS/SSL
+As privacy and security are paramount, especially when transmitting sensitive information, the connection is secured using Hypertext Transfer Protocol Secure (HTTPS) and Secure Sockets Layer (SSL) encryption. This encryption ensures that data exchanged between your browser and Google's servers remains confidential and tamper-proof.
+
+5. Load-Balancer
+To optimize performance and distribute incoming traffic evenly across multiple servers, a load balancer comes into play. It intelligently routes requests to the most suitable server based on factors like server load, geographic location, and server health, ensuring high availability and responsiveness of the website.
+
+ 6. Web Server
+Upon reaching the appropriate server, the web server software, such as Apache, Nginx, or Microsoft IIS, processes the request. It retrieves the requested web page and any associated files, such as HTML, CSS, JavaScript, and multimedia content, from the server's file system or cache.
+
+7. Application Server
+In cases where dynamic content is involved, such as search results or personalized recommendations, the request is forwarded to an application server. This server executes the necessary code, interacts with databases, and generates dynamic content based on user input or specific conditions.
+
+8. Database
+If the requested information is stored in a database, the application server communicates with the database server to retrieve the relevant data. This could include user profiles, search queries, or any other information required to fulfill the request.
+Next time you type "https://www.google.com" and hit Enter, remember the intricate dance of technologies and systems working tirelessly behind the scenes
