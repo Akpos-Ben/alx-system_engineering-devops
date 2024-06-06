@@ -1,0 +1,29 @@
+[34m
+* Datadog Agent 7 install script v1.31.8
+[0m
+[34m
+* Installing apt-transport-https, curl and gnupg
+[0m
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Get:3 http://repo.mysql.com/apt/ubuntu cosmic InRelease [19.8 kB]
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:6 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
+Hit:7 http://ppa.launchpad.net/vbernat/haproxy-2.8/ubuntu focal InRelease
+Err:3 http://repo.mysql.com/apt/ubuntu cosmic InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+Reading package lists...
+W: GPG error: http://repo.mysql.com/apt/ubuntu cosmic InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B7B3B788A8D3785C
+E: The repository 'http://repo.mysql.com/apt/ubuntu cosmic InRelease' is not signed.
+[31m'apt-get update' failed, the script will not install the latest version of apt-transport-https.[0m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (7.68.0-1ubuntu2.22).
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+gnupg set to manually installed.
+You might want to run 'apt --fix-broken install' to correct these.
+The following packages have unmet dependencies:
+ linux-image-generic : Depends: linux-modules-extra-5.4.0-182-generic but it is not going to be installed
+E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
